@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TableMaker from './components/Table';
 import Pagination from './components/Pagination';
-
-
-import './App.css';
+import './components/styling/App.scss';
 
 
 const App =() => {
@@ -25,13 +23,28 @@ const App =() => {
   //   setPerson(item);
   // }, []);
 
+  //unchangable API http://jsonplaceholder.typicode.com/users
+
+  // useEffect(() =>{
+  //   setLoading(true);
+  //   async function fetchData(){
+  //     const res = await fetch(`https://randomuser.me/api/?results=${dataSetSize}`);
+  //     res
+  //       .json()
+  //       .then(res=>res.results)
+  //       .then(res=>setPerson(res))
+  //       .then(setLoading(false));
+  //   }
+
+  //   fetchData();
+  // }, [dataSetSize]);
+
   useEffect(() =>{
     setLoading(true);
     async function fetchData(){
-      const res = await fetch(`https://randomuser.me/api/?results=${dataSetSize}`);
+      const res = await fetch(`http://jsonplaceholder.typicode.com/users`);
       res
         .json()
-        .then(res=>res.results)
         .then(res=>setPerson(res))
         .then(setLoading(false));
     }

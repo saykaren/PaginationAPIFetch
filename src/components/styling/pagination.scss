@@ -1,0 +1,17 @@
+@import './variables.scss';
+
+.pagination {
+    background-color: $primary-color;
+    color: $text-color-light;
+    display: flex;
+}
+
+.page-item {
+    text-decoration: none;
+    border: 1px solid $text-color-light;
+    margin: 1rem;
+    padding: 1rem;
+    list-style-type: none;
+    background-color: $text-color-light;
+    border-radius: 10px;
+}

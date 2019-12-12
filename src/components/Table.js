@@ -7,22 +7,22 @@ const TableMaker = ({ person, loading}) =>{
         <table>
           <thead>
                 <tr>
-                  <th key={`column1`}>First Name</th>
-                  <th>Last Name</th>
+                  <th key={`column1`}>Name</th>
+                  <th>User Name</th>
                   <th>Email </th>
                 </tr>
           </thead>
           <tbody>
               {person && person.map((x)=>(
-                <tr key={x.login.uuid}>
+                <tr key={x.id}>
                   <th
-                    key={x.login.uuid+x.name.first}
-                  >{x.name.first}</th>
+                    key={x.id+x.name}
+                  >{x.name}</th>
                   <th
-                    key={x.login.uuid+x.name.last}
-                  >{x.name.last}</th>
+                    key={x.username}
+                  >{x.username}</th>
                   <th
-                    key={x.login.uuid+x.email}
+                    key={x.id+x.email}
                   >{x.email}</th>
                 </tr>
               ))}
