@@ -6,11 +6,10 @@ import './components/styling/App.scss';
 
 const App =() => {
 
-  const [count, setCount] = useState(0);
   const [person, setPerson] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(7);
+  const [postsPerPage, setPostsPerPage] = useState(4);
   const [dataSetSize, setDataSetSize] = useState(100);
   
   // useEffect(async () =>{
@@ -66,35 +65,14 @@ const App =() => {
     setPostsPerPage(perPageSelected);
   }
 
-  const quantityPerPage = (event) =>{
-    const result = event.target.value;
-    console.log(result);
-    console.log(typeof(result));
-    
-    // if(result> 0 && result !==)
-    // setPostsPerPage(x.target.value)
-  }
-
   return (
-    <div>
-      <p> You clicked {count}</p>
-      <button onClick={()=>setCount(count+1)}>Click Me</button>
-      <label>Page Size</label>
-      <input
-        type="number" 
-        id="dataSize" 
-        value={postsPerPage}
-        onChange={(x)=>quantityPerPage(x)}
-        //setPostsPerPage(x.target.value)
-        required
-        />
-        {postsPerPage}
-
+    <div id="main-app">
+      <h2>Users</h2>
       { loading ? 
           "Loading..." :
           <>
           <TableMaker person={currentPost} />
-          <Pagination PerPage={postsPerPage} totalPost={person.length} paginate={paginate} updatePageAmount={updatePageAmount}/>
+          <Pagination PerPage={postsPerPage} totalPost={person.length} paginate={paginate} updatePageAmount={updatePageAmount} perPageSelected={postsPerPage}/>
           </>
       }
 

@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './styling/pagination.scss';
 
-const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount }) =>{
+const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount, perPageSelected }) =>{
     const pageNumbers = [];
     const perPage = [];
-    const [perPageSelected, setPerPageSelected] = useState(5);
 
     for(let i=1; i<= Math.ceil(totalPost / PerPage); i++) {
         pageNumbers.push(i);
@@ -13,8 +12,6 @@ const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount }) =>{
     for(let i=1; i<= Math.ceil(totalPost); i++) {
         perPage.push(i);
     }
-
-
 
     return(
         <nav>
@@ -30,7 +27,6 @@ const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount }) =>{
             <select
                 id="listAmount"
                 value={perPageSelected}
-                // onChange={(x)=>setPerPageSelected(x.target.value)}
                 onChange={(x)=>updatePageAmount(x.target.value)}
             >
                 {perPage.map(listAmount=>(
