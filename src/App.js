@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TableMaker from './components/Table';
+import Pagination from './components/Pagination';
+
 
 import './App.css';
 
@@ -7,10 +9,10 @@ import './App.css';
 const App =() => {
 
   const [count, setCount] = useState(0);
-  const [person, setPerson] = useState(null);
+  const [person, setPerson] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(7);
   const [dataSetSize, setDataSetSize] = useState(100);
   
   // useEffect(async () =>{
@@ -37,6 +39,12 @@ const App =() => {
     fetchData();
   }, [dataSetSize]);
 
+
+  //Get current page
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPost = person.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <div>
       <p> You clicked {count}</p>
@@ -53,8 +61,11 @@ const App =() => {
 
       { loading ? 
           "Loading..." :
-          <TableMaker person={person} />
-          }
+          <>
+          <TableMaker person={currentPost} />
+          <Pagination PerPage={postsPerPage} totalPost={person.length}/>
+          </>
+      }
 
     </div>
   );
