@@ -10,7 +10,7 @@ const App =() => {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(4);
-  const [dataSetSize, setDataSetSize] = useState(100);
+  // const [dataSetSize, setDataSetSize] = useState(100);
   
   // useEffect(async () =>{
   //   const response = await fetch('https://randomuser.me/api');
@@ -49,7 +49,7 @@ const App =() => {
     }
 
     fetchData();
-  }, [dataSetSize]);
+  }, []);
 
 
   //Get current page
@@ -72,7 +72,7 @@ const App =() => {
           "Loading..." :
           <>
           <TableMaker person={currentPost} />
-          <Pagination PerPage={postsPerPage} totalPost={person.length} paginate={paginate} updatePageAmount={updatePageAmount} perPageSelected={postsPerPage}/>
+          <Pagination PerPage={postsPerPage} totalPost={person.length} paginate={paginate} updatePageAmount={updatePageAmount} perPageSelected={postsPerPage} currentPage={currentPage}/>
           </>
       }
 

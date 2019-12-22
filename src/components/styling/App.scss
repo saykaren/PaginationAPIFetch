@@ -15,8 +15,12 @@
   }
 }
 
-#main-app{
+#root{
   background-color: $primary-color;
+}
+
+#main-app{
+
   color: $text-color-light;
   padding: 1rem;
 }

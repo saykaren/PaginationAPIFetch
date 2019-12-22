@@ -1,7 +1,8 @@
 import React from 'react';
 import './styling/pagination.scss';
+import logo from './../logo.svg';
 
-const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount, perPageSelected }) =>{
+const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount, perPageSelected , currentPage}) =>{
     const pageNumbers = [];
     const perPage = [];
 
@@ -24,6 +25,7 @@ const Pagination = ({ PerPage, totalPost, paginate, updatePageAmount, perPageSel
                     </li>
                 ))}
             </ul>
+
             <select
                 id="listAmount"
                 value={perPageSelected}
